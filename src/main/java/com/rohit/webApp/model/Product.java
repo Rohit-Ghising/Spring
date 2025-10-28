@@ -1,56 +1,32 @@
 package com.rohit.webApp.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+import java.util.Date;
+@Entity
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 
-public class Product {
-    private  int proId;
+public class Product{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    public int getProId() {
-        return proId;
-    }
+    private int id;
+    private String  name;
+    private String description;
+    private String brand;
+    private BigDecimal price ;
+    private String category;
+    private Date releaseDate;
+    private boolean quantity;
 
-    public void setProId(int proId) {
-        this.proId = proId;
-    }
-
-    public String getProdName() {
-        return prodName;
-    }
-
-    public void setProdName(String prodName) {
-        this.prodName = prodName;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    @Override
-    public String toString() {
-        return "Product{" +
-                "proId=" + proId +
-                ", prodName='" + prodName + '\'' +
-                ", price=" + price +
-                '}';
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
-    }
-
-    public Product(int proId, String prodName, int price) {
-        this.proId = proId;
-        this.prodName = prodName;
-        this.price = price;
-    }
-
-    private  String prodName;
-    private int price;
 
 }
